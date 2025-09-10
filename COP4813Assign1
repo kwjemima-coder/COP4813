@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Website!</title>
+
+</head>
+<body>
+  <h1>Hi, my name is Jem Jean Baptiste</h1>
+  <p><strong>Major:</strong> Literature, Media, and Culture</p>
+  <p><strong>Minor:</strong> Computer Science</p>
+  <p><strong>Course:</strong> COP4813</p>
+
+</body>
+</html>
