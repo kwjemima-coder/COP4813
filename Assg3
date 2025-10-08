@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's The Time Where You Are?</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: pink;
+      color: pink;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .intro-box {
+      background-color: #fff0f5;
+      border: 2px solid pink;
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .button {
+      background-color: #fff0f5;
+      color: pink;
+      border: 2px solid pink;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .time-section {
+      background-color: #fff0f5;
+      color: pink;
+      border: 2px solid pink;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .time-display {
+      background-color: #fff0f5;
+      color: pink;
+      border: 2px solid pink;
+      padding: 10px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin: 0 auto;
+      max-width: fit-content;
+    }
+
+    .date-display {
+      background-color: #fff0f5;
+      color: pink;
+      border: 2px solid pink;
+      padding: 10px 20px;
+      font-size: 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .time-image {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border: 6px solid pink;
+      border-radius: 12px;
+      box-sizing: border-box; /* important for borders */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .greeting-text {
+      margin-top: 15px;
+      font-size: 20px;
+      font-style: italic;
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>What's The Time Where You Are?</h1>
+
+    <div id="introBox" class="intro-box">
+      Hi my name is Jem Jean B! I am a Literature major in the course COP4815 Web Application Programming! I am excited to practice my coding skills! Here's the time!
+    </div>
+
+    <button class="button" onclick="showTime()">Click here to see what time it is :)</button>
+
+    <div id="timeSection" class="time-section hidden">
+      <p class="time-display" id="timeText">Loading time...</p>
+      <p class="date-display" id="dateText">Loading date...</p>
+      <img id="timeImage" src="" alt="Time of day image" class="time-image" />
+      <p id="greetingText" class="greeting-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function showTime() {
+      // Hide intro box and button
+      document.getElementById("introBox").classList.add("hidden");
+      document.querySelector(".button").classList.add("hidden");
+
+      // Show time section
+      document.getElementById("timeSection").classList.remove("hidden");
+
+      // Update time and image immediately
+      updateTimeAndImage();
+
+      // Optional: update every second
+      setInterval(updateTimeAndImage, 1000);
+    }
+
+    function updateTimeAndImage() {
+      const now = new Date();
+      const hours = now.getHours();
+
+      // Set time
+      const timeText = now.toLocaleTimeString();
+      document.getElementById("timeText").textContent = "Current Time: " + timeText;
+
+      // Set date
+      const dateText = now.toLocaleDateString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+      document.getElementById("dateText").textContent = "Today's Date: " + dateText;
+
+      // Set image and greeting based on time
+      const image = document.getElementById("timeImage");
+      const greeting = document.getElementById("greetingText");
+
+      if (hours >= 6 && hours < 12) {
+        // Morning
+        image.src = "https://uploads.onecompiler.io/43z2sf6sp/43z3cj2x8/28d4a9f49a82cdeb7710fc4736c491fb.jpg";
+        image.alt = "Morning sunrise";
+        greeting.textContent = "Good Morning, sunshine! A fresh day is unfolding!";
+      } else if (hours >= 12 && hours < 18) {
+        // Afternoon
+        image.src = "https://uploads.onecompiler.io/43z2sf6sp/43z3cj2x8/27bd1c72082cb2a9a9e6ac24e9f40307.jpg";
+        image.alt = "Afternoon sunshine";
+        greeting.textContent = "Good Afternoon, lovely! Embrace the hum of life!";
+      } else {
+        // Night
+        image.src = "https://uploads.onecompiler.io/43z2sf6sp/43z3cj2x8/61195f1ba1eb731a99fe8d5ca820ed36.jpg";
+        image.alt = "Night sky";
+        greeting.textContent = "Good evening, star! The gentle night is unfolding its quiet magic!";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+  
